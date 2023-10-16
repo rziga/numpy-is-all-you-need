@@ -38,6 +38,7 @@ class Adam(Optimizer):
         m_ = m / (1 - self.b1**t)
         v_ = v / (1 - self.b2**t)
         # update
+        self.t = t
         parameter.data -= self.lr * m_ / (np.sqrt(v_) + self.eps)
         moment_1[...] = m
         moment_2[...] = v
