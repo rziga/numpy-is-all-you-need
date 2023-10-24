@@ -23,7 +23,7 @@ class AttentionHead(Module):
         x = self.mm1([Q, K.swapaxes(-1, -2)]) / self.scale
         if self.mask_fcn is not None:
             self.mask = self.mask_fcn(x.shape)
-            x[self.mask == 0] = -1e-11
+            x[self.mask == 0] = -1e11
         x = self.sm(x)
         return self.mm2([x, V])
     

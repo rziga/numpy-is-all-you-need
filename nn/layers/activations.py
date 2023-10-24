@@ -71,5 +71,5 @@ class Softmax(Module):
         O_T = O.swapaxes(-1, -2) # [..., examples, 1, features]
         D = -O * O_T # [..., examples, features, features]
         D[..., range(D.shape[-2]), range(D.shape[-1])] += self.O # add over diagonal
-        return (D @ next[..., np.newaxis]).squeeze(-1)
+        return (D @ next[..., np.newaxis]).squeeze(-1) # batch matmul -> remove temp dim
     
