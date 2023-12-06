@@ -29,6 +29,7 @@ class Adam(Optimizer):
     def step(self):
         for p, m1, m2 in zip(self.parameters, self.mom1, self.mom2):
             self._update_parameter(p, m1, m2)
+        self.t += 1
     
     def _update_parameter(self, parameter, moment_1, moment_2):
         t = self.t + 1
@@ -37,8 +38,7 @@ class Adam(Optimizer):
         v = self.b2 * moment_2 + (1 - self.b1) * g**2
         m_ = m / (1 - self.b1**t)
         v_ = v / (1 - self.b2**t)
-        # update
-        self.t = t
+        # update inplace
         parameter.data -= self.lr * m_ / (np.sqrt(v_) + self.eps)
         moment_1[...] = m
         moment_2[...] = v
