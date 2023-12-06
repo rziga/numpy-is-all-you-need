@@ -1,4 +1,4 @@
-from ..engine import search_params, Module
+from ..engine import Module
 
 
 class Sequential(Module):

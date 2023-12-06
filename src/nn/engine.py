@@ -6,7 +6,8 @@ def check_grad(module, input, h=1e-6):
     pass
 
 def search_params(item):
-    # deep search , returns flattened list of parameters
+    # deep search - parameters from all submodules
+    # returns flattened list of parameters
     if isinstance(item, Parameter):
         return [item]
     elif isinstance(item, list):
@@ -22,7 +23,7 @@ def search_params(item):
         ]
 
 def search_submodules(module):
-    # shallow searc - first level submodules only
+    # shallow search - first level submodules only
     submodules = []
     for var in vars(module).values():
         if isinstance(var, Module):
@@ -50,10 +51,9 @@ class Module():
         raise NotImplementedError
 
     def backward(self, next):
-        # define jacobian * next
-        # next is d loss / output
-        # update parameters
-        # return d output / d input * d loss / d output = d loss / d input
+        # defines d_loss / d_input (next == d_loss / d_output)
+        # update parameters if there are any
+        # return d_loss / d_input
         raise NotImplementedError
     
     def __call__(self, input):

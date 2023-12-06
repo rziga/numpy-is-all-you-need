@@ -29,7 +29,7 @@ class Sigmoid(Module):
     def backward(self, next):
         return (self.O * (1 - self.O)) * next
 
-"""
+""" # works but has O(n^4) space complexity while below one has O(n^3)
 class Softmax(Module):
     
     def __init__(self):
