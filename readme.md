@@ -73,7 +73,7 @@ Looking at loss curves in [train example](src/train.ipynb), the losses seem to b
 
 ![Where is loss?](figs/loss.png "Is this loss?")
 
-Here is the generated text, when trained on [tiny shakespeare](https://raw.githubusercontent.com/karpathy/char-rnn/master/data/tinyshakespeare/input.txt) (from [`train.ipynb`]("src/train.ipynb")).
+Here is the generated text, when trained on [tiny shakespeare](https://raw.githubusercontent.com/karpathy/char-rnn/master/data/tinyshakespeare/input.txt) (from [`train.ipynb`](src/train.ipynb)).
 
 ```
 seed tokens:           | t'st on many a thousand grains t
