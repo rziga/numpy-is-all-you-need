@@ -8,7 +8,7 @@ This is not really meant to be used for anything serious as it was only written 
 As there is no autograd functionality present in numpy, all gradients are manually backpropagated.
 To make my life a bit easier, I use modules, which are similar to interface used in `pytorch.nn`.
 But instead only implementing `forward()` in a layer, you need to implement `backward()` as well :).
-Here's the implementation of linear layer, for example ([src]("src/nn/layers/basic.py")):
+Here's the implementation of linear layer, for example ([src](src/nn/layers/basic.py)):
 
 ```py
 class Linear(Module):
@@ -69,7 +69,7 @@ for s in range(steps):
 
 Yes ... I guess?
 
-Looking at loss curves in [train example]("src/train.ipynb"), the losses seem to be decreasing, although the validation loss is kinda suspect (a bit too similar to train🤔; also no clue about the spikes).
+Looking at loss curves in [train example](src/train.ipynb), the losses seem to be decreasing, although the validation loss is kinda suspect (a bit too similar to train🤔; also no clue about the spikes).
 
 ![Where is loss?](figs/loss.png "Is this loss?")
 
@@ -96,7 +96,7 @@ Optionally, to run train example notebook:
 
 `pip install matplotlib ipykernel`
 
-Download tiny shakespeare dataset([link](https://raw.githubusercontent.com/karpathy/char-rnn/master/data/tinyshakespeare/input.txt)), put it in `data/resources/saved_datasets/tiny_shakespeare.txt` and enjoy wasting your time away watching the funny loss number go up and down in the [train example]("src/train.ipynb").
+Download tiny shakespeare dataset([link](https://raw.githubusercontent.com/karpathy/char-rnn/master/data/tinyshakespeare/input.txt)), put it in `data/resources/saved_datasets/tiny_shakespeare.txt` and enjoy wasting your time away watching the funny loss number go up and down in the [train example](src/train.ipynb).
 
 ## TODO
 
