@@ -69,7 +69,7 @@ for s in range(steps):
 
 Yes ... I guess?
 
-Looking at loss curves in [`train example`]("src/train.ipynb"), the losses seem to be decreasing, although the validation loss is kinda suspect (a bit too similar to train🤔; also no clue about the spikes).
+Looking at loss curves in [train example]("src/train.ipynb"), the losses seem to be decreasing, although the validation loss is kinda suspect (a bit too similar to train🤔; also no clue about the spikes).
 
 ![Where is loss?](figs/loss.png "Is this loss?")
 
@@ -96,7 +96,7 @@ Optionally, to run train example notebook:
 
 `pip install matplotlib ipykernel`
 
-Download [`tiny shakespeare dataset`]("https://raw.githubusercontent.com/karpathy/char-rnn/master/data/tinyshakespeare/input.txt"), put it in `data/resources/saved_datasets/tiny_shakespeare.txt` and enjoy wasting your time away watching the funny loss number go up and down in the [`train example`]("src/train.ipynb").
+Download tiny shakespeare dataset([link]("https://raw.githubusercontent.com/karpathy/char-rnn/master/data/tinyshakespeare/input.txt")), put it in `data/resources/saved_datasets/tiny_shakespeare.txt` and enjoy wasting your time away watching the funny loss number go up and down in the [train example]("src/train.ipynb").
 
 ## TODO
 
@@ -104,6 +104,6 @@ Download [`tiny shakespeare dataset`]("https://raw.githubusercontent.com/karpath
 
 * Dropout is implemented, but the whole framework needs to be adapted for it, because it is currently impossible to test due to its randomness.
 
-* Model saving and loading
+* Model saving and loading.
 
 * ...
