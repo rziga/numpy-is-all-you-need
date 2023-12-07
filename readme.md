@@ -34,7 +34,7 @@ class Linear(Module):
 ```
 
 Unlike Pytorch, however, saving calculations for efficient backprop are saved/handled in layers directly, without any ctx.
-E.g. in softmax backprop you use the result of forward in backward to save calculations, so reusing a layer with no parameters is not possible here.
+For example, in softmax backprop you use the result of forward in backward to save calculations, so reusing a layer with no parameters is not possible here.
 That is why starting backprop is a bit different:
 
 ```py
