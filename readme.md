@@ -96,7 +96,7 @@ Optionally, to run train example notebook:
 
 `pip install matplotlib ipykernel`
 
-Download tiny shakespeare dataset([link]("https://raw.githubusercontent.com/karpathy/char-rnn/master/data/tinyshakespeare/input.txt")), put it in `data/resources/saved_datasets/tiny_shakespeare.txt` and enjoy wasting your time away watching the funny loss number go up and down in the [train example]("src/train.ipynb").
+Download tiny shakespeare dataset([link](https://raw.githubusercontent.com/karpathy/char-rnn/master/data/tinyshakespeare/input.txt)), put it in `data/resources/saved_datasets/tiny_shakespeare.txt` and enjoy wasting your time away watching the funny loss number go up and down in the [train example]("src/train.ipynb").
 
 ## TODO
 
