@@ -100,7 +100,7 @@ Download tiny shakespeare dataset([link](https://raw.githubusercontent.com/karpa
 
 ## TODO
 
-* I verified backprop using a numerical approach, but the code is currently too messy to be included :) So uuhh trust?
+* I verified backprop using finite differences, but the code is currently too messy to be included :) So uuhh trust?
 
 * Dropout is implemented, but the whole framework needs to be adapted for it, because it is currently impossible to test due to its randomness.
 
