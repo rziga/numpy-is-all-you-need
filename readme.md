@@ -7,7 +7,7 @@ This is not really meant to be used for anything serious as it was only written 
 
 As there is no autograd functionality present in numpy, all gradients are manually backpropagated.
 To make my life a bit easier, I use modules, which are similar to interface used in `pytorch.nn`.
-But instead only implementing `forward()` in a layer, you need to implement `backward()` as well :).
+But instead of only implementing `forward()` in a layer, you need to implement `backward()` as well :).
 Here's the implementation of linear layer, for example ([src](src/nn/layers/basic.py)):
 
 ```py
