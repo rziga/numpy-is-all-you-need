@@ -1,13 +1,13 @@
 # Transformer in numpy.
 
-Transformer (from the paper [Attention is all you need](https://arxiv.org/abs/1706.03762)) written from scratch in numpy with manual backprop cuz why not.
-This is not really meant to be used for anything serious as it was only written for a meme and runs on the CPU and is thus quite slow (although everything is fully vectorized in numpy so it's not that slow either😎).
+Transformer (from the paper [Attention is all you need](https://arxiv.org/abs/1706.03762)) written from scratch in numpy with manual backpropagation cuz why not.
+This is not really meant to be used for anything serious as it was only written for a meme and runs on the CPU making training quite slow (although everything is fully vectorized in numpy so it's not that slow either😎).
 
 ## How does it work?
 
 As there is no autograd functionality present in numpy, all gradients are manually backpropagated.
-To make my life a bit easier, I use modules, which are similar to interface used in `pytorch.nn`.
-But instead of only implementing `forward()` in a layer, you need to implement `backward()` as well :).
+To make my life a bit easier, I use modules, which have a similar interface to the ones used in `pytorch.nn`.
+But here, instead of only implementing `forward()` in a layer, you need to implement `backward()` as well :).
 Here's the implementation of linear layer, for example ([src](src/nn/layers/basic.py)):
 
 ```py
@@ -33,9 +33,9 @@ class Linear(Module):
         return d_X
 ```
 
-Unlike Pytorch, however, saving calculations for efficient backprop are saved/handled in layers directly, without any ctx.
-For example, in softmax backprop you use the result of forward in backward to save calculations, so reusing a layer with no parameters is not possible here.
-That is why starting backprop is a bit different:
+Unlike Pytorch, however, saving calculations for efficient backprop is handled in layers directly, without any funtion ctx.
+For example, in softmax you use the result of forward pass in backward to save some calculations. These output arrays are saved in the layer object in my implementation. This means that reusing even a layer with no parameters is not possible here.
+That is also why starting the backprop is a bit different:
 
 ```py
 model.backward(loss.backward())
@@ -69,11 +69,11 @@ for s in range(steps):
 
 Yes ... I guess?
 
-Looking at loss curves in [train example](src/train.ipynb), the losses seem to be decreasing, although the validation loss is kinda suspect (a bit too similar to train🤔; also no clue about the spikes).
+Looking at loss curves in [train example](src/train.ipynb), the losses seem to be decreasing, although the validation loss is kinda suspect (a bit too similar to train🤔; also no clue about the spikes, probably Adam's doing).
 
 ![Where is loss?](figs/loss.png "Is this loss?")
 
-Here is the generated text, when trained on [tiny shakespeare](https://raw.githubusercontent.com/karpathy/char-rnn/master/data/tinyshakespeare/input.txt) (from [`train.ipynb`](src/train.ipynb)).
+And here is a sample of the generated text, when trained on [tiny shakespeare](https://raw.githubusercontent.com/karpathy/char-rnn/master/data/tinyshakespeare/input.txt) (from [`train.ipynb`](src/train.ipynb)).
 
 ```
 seed tokens:           | t'st on many a thousand grains t
@@ -100,9 +100,9 @@ Download tiny shakespeare dataset([link](https://raw.githubusercontent.com/karpa
 
 ## TODO
 
-* I verified backprop using finite differences, but the code is currently too messy to be included :) So uuhh trust?
+* I verified backprop using finite differences, but the code is currently too messy to be included :) So... uuhh... trust?
 
-* Dropout is implemented, but the whole framework needs to be adapted for it, because it is currently impossible to test due to its randomness.
+* Dropout is implemented, but the whole framework needs to be adapted for it, because it is currently impossible to test it due to its randomness.
 
 * Model saving and loading.
 
